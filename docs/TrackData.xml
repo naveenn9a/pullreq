@@ -1,0 +1,968 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrackData>
+    <!-- Label: What is shown on the left of the table;
+        Value Label: What is shown on the right of the table if necessary;
+        Value: Type that is shown/editable
+        
+        
+        Track level Example:
+        
+        ____________________________________________________________________
+        |   Label                   |   Value    ValueLabel                 |
+        |___________________________|_______________________________________|
+        |   Status                  |   [] Close Track                      |
+        |   All                     |   [] Disable All Alarms               |
+        |   Too Many Vehicles       |   [] Disable Too Many Vehicles Alarm  |
+        |   Absolute Maximum        |   [####____]                          |
+        |   Max Number              |   [####____]                          |
+        |   Speed                   |   [] Disable Speed Alarm              |
+        |   Speed Limit (kph)       |   [####____]                          |
+        |   Excess Stop             |   [] Disable Excess Stop Alarm        |
+        |   Stop Limit (secs)       |   [####____]                          |
+        |   Direction               |   [Clockwise____[v]]                  |
+        |   Off Track               |   [] Disable Off Track Alarm          |
+        |   Too Close Alarm         |   [] Disable Too Close Alarm          |
+        |___________________________|_______________________________________|   
+    -->
+
+    <!-- Label: What is shown on the left of the table;
+        Value Label: What is shown on the right of the table if necessary;
+        Value: Type that is shown/editable
+        
+        
+        Site LevelExample:
+        ____________________________________________________________________
+        |   Label                   |   Value    ValueLabel                 |
+        |___________________________|_______________________________________|
+        |   All                     |   [] Disable All Alarms               |
+        |   Speed Limit (kph)       |   [####____]                          |
+        |   Internal Alarms         |   [] Disable Internal Alarms          |
+        |   Battery Low Level       |   [####____]                          |
+        |   Off Road Time (secs)    |   [####____]                          |
+        |   Too Close Distance (m)  |   [####____]                          |   
+        |___________________________|_______________________________________|   
+    -->
+    <HPG>
+        <!-- The only things that need to be visible to the user for HPG is 
+            *   DisableAllTrackAlarms
+            *   SpeedLimit
+            *   InternalAlarms  
+            *   BatteryWarningLevel
+            *   OffRoadTime
+            *   TooCloseDistance
+        -->
+        
+        <!-- Not Editable by user in Alarm Control menu-->
+        <TrackNo>00</TrackNo> <!-- Number associate with the Track-->
+        <TrackArea>Hällered</TrackArea> <!-- Geo cordinates associated with the Track segment-->
+        <TrackSubpart>Site</TrackSubpart> <!-- Name of the specific track segment-->
+        <Type>Point</Type> <!-- GeoJSON type-->
+        <Subtype>Point</Subtype> <!-- Type of track segment-->
+        <SeqNumber>5</SeqNumber> <!-- Icremented if a track segment if seperated into parts-->
+        <Autocad_layer>HPG Site</Autocad_layer> <!-- Combines the values above it into one variable. Also used to for Track/Site points and will say the Track prefix and if it is a track or site.-->
+        <Timestamp>2021-05-12</Timestamp> <!-- Year-month-day the geoJSON associated with it was created-->
+        <AlarmState>Default</AlarmState> <!--Internal Use Only. Three States 1. Default 2.Alarm setting has been changed 3.Track Closed  -->
+        <TrackColor>White</TrackColor> <!--Used to reflect the state of the Dynamic Alarm Settings-->
+        <Count>0</Count> <!-- Current Count of how many trackers on in the specific track segment-->
+        <Exclusive>false</Exclusive> <!-- Assuming this is used to show if the track is exclusive. Unsure how this is presented-->
+        <TrackPrefix>HPG</TrackPrefix> <!-- Prefix used at the track level. There are instances where this is the same as the site level and that is fine-->
+        <SitePrefix>HPG</SitePrefix> <!-- Prefix used at the site level-->
+        <!-- END OF Not Editable by user in Alarm Control menu-->
+
+        <!-- Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <TrackStatus>false</TrackStatus> <!-- Label: "Status" Value Label: "Close Track"; Value: Checkbox, true meaning the track is closed-->
+        <DisableAllTrackAlarms>false</DisableAllTrackAlarms> <!-- Label: "All"; Value Label: "Disable All Alarms"; Value: Checkbox, True meaning all alarms are disabled-->
+        <TooManyVehiclesAlarm>false</TooManyVehiclesAlarm> <!-- Label: "Too Many Vehicles"; Value Label: "Disable Too Many Vehicles Alarm"; Value: Checkbox, True meaning the too many vehicles alarm is disabled-->
+        <AbsoluteMaximum>9999</AbsoluteMaximum> <!--Label: "Absolute Maximum"; Value: Open Textbox that only takes Integers-->
+        <MaxNumber>1</MaxNumber> <!--Label: "Max Number"; Value: Open Textbox that only takes Integer-->
+        <SpeedAlarm>false</SpeedAlarm> <!-- Label: "Speed"; Value Label: "Disable Speed Alarm"; Value: Checkbox, True meaning that the Speed alarm is disabled-->
+        <SpeedLimit>999</SpeedLimit> <!--Label: "Speed Limit (kph)"; Value: Open Textbox Integers only-->
+        <ExcessStopAlarm>false</ExcessStopAlarm> <!-- Label: "Excess Stop"; Value Label: "Disable Excess Stop Alarm"; Value: Checkbox, True meaning that the Excess Stop alarm is disabled-->
+        <ExcessStopLimit>9999</ExcessStopLimit> <!-- Label: "Stop Limit (secs)"; Value: Open Textbox Integers only-->
+        <Direction>Both</Direction> <!-- Label: "Direction"; Value: Dropdown list with 3 choices, "Clockwise","CounterClockwise", and "Both"-->
+        <OffTrackAlarm>false</OffTrackAlarm> <!-- Label: "Off Track"; Value Label: "Disable Off Track Alarm"; Vlaue: Checkbox, true meaning OffTrack alarm is disabled-->
+        <TooCloseAlarm>false</TooCloseAlarm> <!-- Lable: "Too Close"; Value Label: "Disable Too Close Alarm"; Value: Checkbox, true meaning TooClose alarm is disabled-->
+        <!-- END OF Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <!-- Site Only Options-->
+
+        <InternalAlarms>false</InternalAlarms> <!-- Site Level Only--> <!-- Label: "Internal Alarms"; Value Label: "Disable Internal Alarms"; Value: Checkbox, true meaning Internal Alarms are disabled-->
+        <BatteryWarningLevel>20</BatteryWarningLevel> <!--Site Level only--> <!-- Label: "Battery Low Level"; Value: Open Textbox that only takes Integers -->
+        <OffRoadTime>5</OffRoadTime> <!--Site Level Only --> <!--Label: "Off Road Time (secs)"; Value: "Open Textbox that only takes Integers"-->
+        <TooCloseDistance>100</TooCloseDistance> <!-- Site Level Only--> <!-- Label: "Too Close Distance (m)"; Value: Open textbox Integers only-->
+        <!-- END OF Site Only Options-->
+    </HPG>
+
+    <HST>
+        <!-- The only things that need to be visible to the user for HST is 
+            *   TrackStatus
+            *   DisableAllTrackAlarms
+            *   TooManyVehiclesAlarm
+            *   AbsoluteMaximum
+            *   MaxNumber
+            *   SpeedAlarm
+            *   SpeedLimit
+            *   Direction
+            *   OffTrackAlarm
+        -->
+
+        <!-- Not Editable by user in Alarm Control menu-->
+        <TrackNo>02</TrackNo> <!-- Number associate with the Track-->
+        <TrackArea>High-Speed Track</TrackArea> <!-- Geo cordinates associated with the Track segment-->
+        <TrackSubpart>Track</TrackSubpart> <!-- Name of the specific track segment-->
+        <Type>Point</Type> <!-- GeoJSON type-->
+        <Subtype>Point</Subtype> <!-- Type of track segment-->
+        <SeqNumber>5</SeqNumber> <!-- Icremented if a track segment if seperated into parts-->
+        <Autocad_layer>HST Track</Autocad_layer> <!-- Combines the values above it into one variable. Also used to for Track/Site points and will say the Track prefix and if it is a track or site.-->
+        <Timestamp>2021-05-12</Timestamp> <!-- Year-month-day the geoJSON associated with it was created-->
+        <AlarmState>Default</AlarmState> <!--Internal Use Only. Three States 1. Default 2.Alarm setting has been changed 3.Track Closed  -->
+        <TrackColor>White</TrackColor> <!--Used to reflect the state of the Dynamic Alarm Settings-->
+        <Count>0</Count> <!-- Current Count of how many trackers on in the specific track segment-->
+        <Exclusive>false</Exclusive> <!-- Assuming this is used to show if the track is exclusive. Unsure how this is presented-->
+        <TrackPrefix>HST</TrackPrefix> <!-- Prefix used at the track level. There are instances where this is the same as the site level and that is fine-->
+        <SitePrefix>HPG</SitePrefix> <!-- Prefix used at the site level-->
+        <!-- END OF Not Editable by user in Alarm Control menu-->
+
+        <!-- Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <TrackStatus>false</TrackStatus> <!-- Label: "Status" Value Label: "Close Track"; Value: Checkbox, true meaning the track is CLOSED-->
+        <DisableAllTrackAlarms>false</DisableAllTrackAlarms> <!-- Label: "All"; Value Label: "Disable All Alarms"; Value: Checkbox, True meaning all alarms are disabled-->
+        <TooManyVehiclesAlarm>false</TooManyVehiclesAlarm> <!-- Label: "Too Many Vehicles"; Value Label: "Disable Too Many Vehicles Alarm"; Value: Checkbox, True meaning the too many vehicles alarm is disabled-->
+        <AbsoluteMaximum>25</AbsoluteMaximum> <!--Label: "Absolute Maximum"; Value: Open Textbox that only takes Integers-->
+        <MaxNumber>25</MaxNumber> <!--Label: "Max Number"; Value: Open Textbox that only takes Integer-->
+        <SpeedAlarm>false</SpeedAlarm> <!-- Label: "Speed"; Value Label: "Disable Speed Alarm"; Value: Checkbox, True meaning that the Speed alarm is disabled-->
+        <SpeedLimit>999</SpeedLimit> <!--Label: "Speed Limit (kph)"; Value: Open Textbox Integers only-->
+        <ExcessStopAlarm>false</ExcessStopAlarm> <!-- Label: "Excess Stop"; Value Label: "Disable Excess Stop Alarm"; Value: Checkbox, True meaning that the Excess Stop alarm is disabled-->
+        <ExcessStopLimit>9999</ExcessStopLimit> <!-- Label: "Stop Limit (secs)"; Value: Open Textbox Integers only-->
+        <Direction>Both</Direction> <!-- Label: "Direction"; Value: Dropdown list with 3 choices, "Clockwise","CounterClockwise", and "Both"-->
+        <OffTrackAlarm>false</OffTrackAlarm> <!-- Label: "Off Track"; Value Label: "Disable Off Track Alarm"; Vlaue: Checkbox, true meaning OffTrack alarm is disabled-->
+        <TooCloseAlarm>false</TooCloseAlarm> <!-- Lable: "Too Close"; Value Label: "Disable Too Close Alarm"; Value: Checkbox, true meaning TooClose alarm is disabled-->
+        <!-- END OF Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <!-- Site Only Options-->
+
+        <InternalAlarms>false</InternalAlarms> <!-- Site Level Only--> <!-- Label: "Internal Alarms"; Value Label: "Disable Internal Alarms"; Value: Checkbox, true meaning Internal Alarms are disabled-->
+        <BatteryWarningLevel>20</BatteryWarningLevel> <!--Site Level only--> <!-- Label: "Battery Low Level"; Value: Open Textbox that only takes Integers -->
+        <OffRoadTime>5</OffRoadTime> <!--Site Level Only --> <!--Label: "Off Road Time (secs)"; Value: "Open Textbox that only takes Integers"-->
+        <TooCloseDistance>100</TooCloseDistance> <!-- Site Level Only--> <!-- Label: "Too Close Distance (m)"; Value: Open textbox Integers only-->
+        <!-- END OF Site Only Options-->
+    </HST>
+
+    <HT2>
+        <!-- The only things that need to be visible to the user for HT2 is 
+            *   TrackStatus
+            *   DisableAllTrackAlarms
+            *   TooManyVehiclesAlarm
+            *   AbsoluteMaximum
+            *   MaxNumber
+            *   Direction
+            *   OffTrackAlarm
+        -->
+
+        <!-- Not Editable by user in Alarm Control menu-->
+        <TrackNo>16</TrackNo> <!-- Number associate with the Track-->
+        <TrackArea>Handling Track 2</TrackArea> <!-- Geo cordinates associated with the Track segment-->
+        <TrackSubpart>Track</TrackSubpart> <!-- Name of the specific track segment-->
+        <Type>Point</Type> <!-- GeoJSON type-->
+        <Subtype>Point</Subtype> <!-- Type of track segment-->
+        <SeqNumber>5</SeqNumber> <!-- Icremented if a track segment if seperated into parts-->
+        <Autocad_layer>HT2 Track</Autocad_layer> <!-- Combines the values above it into one variable. Also used to for Track/Site points and will say the Track prefix and if it is a track or site.-->
+        <Timestamp>2021-05-12</Timestamp> <!-- Year-month-day the geoJSON associated with it was created-->
+        <AlarmState>Default</AlarmState> <!--Internal Use Only. Three States 1. Default 2.Alarm setting has been changed 3.Track Closed  -->
+        <TrackColor>White</TrackColor> <!--Used to reflect the state of the Dynamic Alarm Settings-->
+        <Count>0</Count> <!-- Current Count of how many trackers on in the specific track segment-->
+        <Exclusive>false</Exclusive> <!-- Assuming this is used to show if the track is exclusive. Unsure how this is presented-->
+        <TrackPrefix>HT2</TrackPrefix> <!-- Prefix used at the track level. There are instances where this is the same as the site level and that is fine-->
+        <SitePrefix>HPG</SitePrefix> <!-- Prefix used at the site level-->
+        <!-- END OF Not Editable by user in Alarm Control menu-->
+
+        <!-- Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <TrackStatus>false</TrackStatus> <!-- Label: "Status" Value Label: "Close Track"; Value: Checkbox, true meaning the track is CLOSED-->
+        <DisableAllTrackAlarms>false</DisableAllTrackAlarms> <!-- Label: "All"; Value Label: "Disable All Alarms"; Value: Checkbox, True meaning all alarms are disabled-->
+        <TooManyVehiclesAlarm>false</TooManyVehiclesAlarm> <!-- Label: "Too Many Vehicles"; Value Label: "Disable Too Many Vehicles Alarm"; Value: Checkbox, True meaning the too many vehicles alarm is disabled-->
+        <AbsoluteMaximum>9999</AbsoluteMaximum> <!--Label: "Absolute Maximum"; Value: Open Textbox that only takes Integers-->
+        <MaxNumber>1</MaxNumber> <!--Label: "Max Number"; Value: Open Textbox that only takes Integer-->
+        <SpeedAlarm>false</SpeedAlarm> <!-- Label: "Speed"; Value Label: "Disable Speed Alarm"; Value: Checkbox, True meaning that the Speed alarm is disabled-->
+        <SpeedLimit>9999</SpeedLimit> <!--Label: "Speed Limit (kph)"; Value: Open Textbox Integers only-->
+        <ExcessStopAlarm>false</ExcessStopAlarm> <!-- Label: "Excess Stop"; Value Label: "Disable Excess Stop Alarm"; Value: Checkbox, True meaning that the Excess Stop alarm is disabled-->
+        <ExcessStopLimit>9999</ExcessStopLimit> <!-- Label: "Stop Limit (secs)"; Value: Open Textbox Integers only-->
+        <Direction>Both</Direction> <!-- Label: "Direction"; Value: Dropdown list with 3 choices, "Clockwise","CounterClockwise", and "Both"-->
+        <OffTrackAlarm>false</OffTrackAlarm> <!-- Label: "Off Track"; Value Label: "Disable Off Track Alarm"; Vlaue: Checkbox, true meaning OffTrack alarm is disabled-->
+        <TooCloseAlarm>false</TooCloseAlarm> <!-- Lable: "Too Close"; Value Label: "Disable Too Close Alarm"; Value: Checkbox, true meaning TooClose alarm is disabled-->
+        <!-- END OF Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <!-- Site Only Options-->
+
+        <InternalAlarms>false</InternalAlarms> <!-- Site Level Only--> <!-- Label: "Internal Alarms"; Value Label: "Disable Internal Alarms"; Value: Checkbox, true meaning Internal Alarms are disabled-->
+        <BatteryWarningLevel>20</BatteryWarningLevel> <!--Site Level only--> <!-- Label: "Battery Low Level"; Value: Open Textbox that only takes Integers -->
+        <OffRoadTime>5</OffRoadTime> <!--Site Level Only --> <!--Label: "Off Road Time (secs)"; Value: "Open Textbox that only takes Integers"-->
+        <TooCloseDistance>100</TooCloseDistance> <!-- Site Level Only--> <!-- Label: "Too Close Distance (m)"; Value: Open textbox Integers only-->
+        <!-- END OF Site Only Options-->
+    </HT2>
+
+    <BH>
+        <!-- The only things that need to be visible to the user for B/H is 
+            *   TrackStatus
+            *   DisableAllTrackAlarms
+            *   TooManyVehiclesAlarm
+            *   AbsoluteMaximum
+            *   MaxNumber
+        -->
+
+        <!-- Not Editable by user in Alarm Control menu-->
+        <TrackNo>11</TrackNo> <!-- Number associate with the Track-->
+        <TrackArea>Low friction and handling area</TrackArea> <!-- Geo cordinates associated with the Track segment-->
+        <TrackSubpart>Track</TrackSubpart> <!-- Name of the specific track segment-->
+        <Type>Point</Type> <!-- GeoJSON type-->
+        <Subtype>Point</Subtype> <!-- Type of track segment-->
+        <SeqNumber>5</SeqNumber> <!-- Icremented if a track segment if seperated into parts-->
+        <Autocad_layer>BH Track</Autocad_layer> <!-- Combines the values above it into one variable. Also used to for Track/Site points and will say the Track prefix and if it is a track or site.-->
+        <Timestamp>2021-05-12</Timestamp> <!-- Year-month-day the geoJSON associated with it was created-->
+        <AlarmState>Default</AlarmState> <!--Internal Use Only. Three States 1. Default 2.Alarm setting has been changed 3.Track Closed  -->
+        <TrackColor>White</TrackColor> <!--Used to reflect the state of the Dynamic Alarm Settings-->
+        <Count>0</Count> <!-- Current Count of how many trackers on in the specific track segment-->
+        <Exclusive>false</Exclusive> <!-- Assuming this is used to show if the track is exclusive. Unsure how this is presented-->
+        <TrackPrefix>B/H</TrackPrefix> <!-- Prefix used at the track level. There are instances where this is the same as the site level and that is fine-->
+        <SitePrefix>HPG</SitePrefix> <!-- Prefix used at the site level-->
+        <!-- END OF Not Editable by user in Alarm Control menu-->
+
+        <!-- Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <TrackStatus>false</TrackStatus> <!-- Label: "Status" Value Label: "Close Track"; Value: Checkbox, true meaning the track is CLOSED-->
+        <DisableAllTrackAlarms>false</DisableAllTrackAlarms> <!-- Label: "All"; Value Label: "Disable All Alarms"; Value: Checkbox, True meaning all alarms are disabled-->
+        <TooManyVehiclesAlarm>false</TooManyVehiclesAlarm> <!-- Label: "Too Many Vehicles"; Value Label: "Disable Too Many Vehicles Alarm"; Value: Checkbox, True meaning the too many vehicles alarm is disabled-->
+        <AbsoluteMaximum>9999</AbsoluteMaximum> <!--Label: "Absolute Maximum"; Value: Open Textbox that only takes Integers-->
+        <MaxNumber>1</MaxNumber> <!--Label: "Max Number"; Value: Open Textbox that only takes Integer-->
+        <SpeedAlarm>false</SpeedAlarm> <!-- Label: "Speed"; Value Label: "Disable Speed Alarm"; Value: Checkbox, True meaning that the Speed alarm is disabled-->
+        <SpeedLimit>999</SpeedLimit> <!--Label: "Speed Limit (kph)"; Value: Open Textbox Integers only-->
+        <ExcessStopAlarm>false</ExcessStopAlarm> <!-- Label: "Excess Stop"; Value Label: "Disable Excess Stop Alarm"; Value: Checkbox, True meaning that the Excess Stop alarm is disabled-->
+        <ExcessStopLimit>9999</ExcessStopLimit> <!-- Label: "Stop Limit (secs)"; Value: Open Textbox Integers only-->
+        <Direction>Both</Direction> <!-- Label: "Direction"; Value: Dropdown list with 3 choices, "Clockwise","CounterClockwise", and "Both"-->
+        <OffTrackAlarm>false</OffTrackAlarm> <!-- Label: "Off Track"; Value Label: "Disable Off Track Alarm"; Vlaue: Checkbox, true meaning OffTrack alarm is disabled-->
+        <TooCloseAlarm>false</TooCloseAlarm> <!-- Lable: "Too Close"; Value Label: "Disable Too Close Alarm"; Value: Checkbox, true meaning TooClose alarm is disabled-->
+        <!-- END OF Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <!-- Site Only Options-->
+
+        <InternalAlarms>false</InternalAlarms> <!-- Site Level Only--> <!-- Label: "Internal Alarms"; Value Label: "Disable Internal Alarms"; Value: Checkbox, true meaning Internal Alarms are disabled-->
+        <BatteryWarningLevel>20</BatteryWarningLevel> <!--Site Level only--> <!-- Label: "Battery Low Level"; Value: Open Textbox that only takes Integers -->
+        <OffRoadTime>5</OffRoadTime> <!--Site Level Only --> <!--Label: "Off Road Time (secs)"; Value: "Open Textbox that only takes Integers"-->
+        <TooCloseDistance>100</TooCloseDistance> <!-- Site Level Only--> <!-- Label: "Too Close Distance (m)"; Value: Open textbox Integers only-->
+        <!-- END OF Site Only Options-->
+    </BH>
+
+    <CRT>
+        <!-- The only things that need to be visible to the user for CRT is 
+            *   TrackStatus
+            *   DisableAllTrackAlarms
+            *   TooManyVehiclesAlarm
+            *   AbsoluteMaximum
+            *   MaxNumber
+            *   SpeedAlarm
+            *   SpeedLimit
+            *   Direction
+            *   OffTrackAlarm
+        -->
+
+        <!-- Not Editable by user in Alarm Control menu-->
+        <TrackNo>14</TrackNo> <!-- Number associate with the Track-->
+        <TrackArea>Country raod</TrackArea> <!-- Geo cordinates associated with the Track segment-->
+        <TrackSubpart>Track</TrackSubpart> <!-- Name of the specific track segment-->
+        <Type>Point</Type> <!-- GeoJSON type-->
+        <Subtype>Point</Subtype> <!-- Type of track segment-->
+        <SeqNumber>5</SeqNumber> <!-- Icremented if a track segment if seperated into parts-->
+        <Autocad_layer>CRT Track</Autocad_layer> <!-- Combines the values above it into one variable. Also used to for Track/Site points and will say the Track prefix and if it is a track or site.-->
+        <Timestamp>2021-05-12</Timestamp> <!-- Year-month-day the geoJSON associated with it was created-->
+        <AlarmState>Default</AlarmState> <!--Internal Use Only. Three States 1. Default 2.Alarm setting has been changed 3.Track Closed  -->
+        <TrackColor>White</TrackColor> <!--Used to reflect the state of the Dynamic Alarm Settings-->
+        <Count>0</Count> <!-- Current Count of how many trackers on in the specific track segment-->
+        <Exclusive>false</Exclusive> <!-- Assuming this is used to show if the track is exclusive. Unsure how this is presented-->
+        <TrackPrefix>CRT</TrackPrefix> <!-- Prefix used at the track level. There are instances where this is the same as the site level and that is fine-->
+        <SitePrefix>HPG</SitePrefix> <!-- Prefix used at the site level-->
+        <!-- END OF Not Editable by user in Alarm Control menu-->
+
+        <!-- Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <TrackStatus>false</TrackStatus> <!-- Label: "Status" Value Label: "Close Track"; Value: Checkbox, true meaning the track is CLOSED-->
+        <DisableAllTrackAlarms>false</DisableAllTrackAlarms> <!-- Label: "All"; Value Label: "Disable All Alarms"; Value: Checkbox, True meaning all alarms are disabled-->
+        <TooManyVehiclesAlarm>false</TooManyVehiclesAlarm> <!-- Label: "Too Many Vehicles"; Value Label: "Disable Too Many Vehicles Alarm"; Value: Checkbox, True meaning the too many vehicles alarm is disabled-->
+        <AbsoluteMaximum>9999</AbsoluteMaximum> <!--Label: "Absolute Maximum"; Value: Open Textbox that only takes Integers-->
+        <MaxNumber>1</MaxNumber> <!--Label: "Max Number"; Value: Open Textbox that only takes Integer-->
+        <SpeedAlarm>false</SpeedAlarm> <!-- Label: "Speed"; Value Label: "Disable Speed Alarm"; Value: Checkbox, True meaning that the Speed alarm is disabled-->
+        <SpeedLimit>999</SpeedLimit> <!--Label: "Speed Limit (kph)"; Value: Open Textbox Integers only-->
+        <ExcessStopAlarm>false</ExcessStopAlarm> <!-- Label: "Excess Stop"; Value Label: "Disable Excess Stop Alarm"; Value: Checkbox, True meaning that the Excess Stop alarm is disabled-->
+        <ExcessStopLimit>9999</ExcessStopLimit> <!-- Label: "Stop Limit (secs)"; Value: Open Textbox Integers only-->
+        <Direction>CounterClockwise</Direction> <!-- Label: "Direction"; Value: Dropdown list with 3 choices, "Clockwise","CounterClockwise", and "Both"-->
+        <OffTrackAlarm>false</OffTrackAlarm> <!-- Label: "Off Track"; Value Label: "Disable Off Track Alarm"; Vlaue: Checkbox, true meaning OffTrack alarm is disabled-->
+        <TooCloseAlarm>false</TooCloseAlarm> <!-- Lable: "Too Close"; Value Label: "Disable Too Close Alarm"; Value: Checkbox, true meaning TooClose alarm is disabled-->
+        <!-- END OF Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <!-- Site Only Options-->
+
+        <InternalAlarms>false</InternalAlarms> <!-- Site Level Only--> <!-- Label: "Internal Alarms"; Value Label: "Disable Internal Alarms"; Value: Checkbox, true meaning Internal Alarms are disabled-->
+        <BatteryWarningLevel>20</BatteryWarningLevel> <!--Site Level only--> <!-- Label: "Battery Low Level"; Value: Open Textbox that only takes Integers -->
+        <OffRoadTime>5</OffRoadTime> <!--Site Level Only --> <!--Label: "Off Road Time (secs)"; Value: "Open Textbox that only takes Integers"-->
+        <TooCloseDistance>100</TooCloseDistance> <!-- Site Level Only--> <!-- Label: "Too Close Distance (m)"; Value: Open textbox Integers only-->
+        <!-- END OF Site Only Options-->
+    </CRT>
+
+    <HT1>
+        <!-- The only things that need to be visible to the user for HT1 is 
+            *   TrackStatus
+            *   DisableAllTrackAlarms
+            *   TooManyVehiclesAlarm
+            *   AbsoluteMaximum
+            *   MaxNumber
+            *   SpeedAlarm
+            *   SpeedLimit
+            *   Direction
+            *   OffTrackAlarm
+        -->
+
+        <!-- Not Editable by user in Alarm Control menu-->
+        <TrackNo>05</TrackNo> <!-- Number associate with the Track-->
+        <TrackArea>Handling track 1</TrackArea> <!-- Geo cordinates associated with the Track segment-->
+        <TrackSubpart>Track</TrackSubpart> <!-- Name of the specific track segment-->
+        <Type>Point</Type> <!-- GeoJSON type-->
+        <Subtype>Point</Subtype> <!-- Type of track segment-->
+        <SeqNumber>5</SeqNumber> <!-- Icremented if a track segment if seperated into parts-->
+        <Autocad_layer>HT1 Track</Autocad_layer> <!-- Combines the values above it into one variable. Also used to for Track/Site points and will say the Track prefix and if it is a track or site.-->
+        <Timestamp>2021-05-12</Timestamp> <!-- Year-month-day the geoJSON associated with it was created-->
+        <AlarmState>Default</AlarmState> <!--Internal Use Only. Three States 1. Default 2.Alarm setting has been changed 3.Track Closed  -->
+        <TrackColor>White</TrackColor> <!--Used to reflect the state of the Dynamic Alarm Settings-->
+        <Count>0</Count> <!-- Current Count of how many trackers on in the specific track segment-->
+        <Exclusive>false</Exclusive> <!-- Assuming this is used to show if the track is exclusive. Unsure how this is presented-->
+        <TrackPrefix>HT1</TrackPrefix> <!-- Prefix used at the track level. There are instances where this is the same as the site level and that is fine-->
+        <SitePrefix>HPG</SitePrefix> <!-- Prefix used at the site level-->
+        <!-- END OF Not Editable by user in Alarm Control menu-->
+
+        <!-- Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <TrackStatus>false</TrackStatus> <!-- Label: "Status" Value Label: "Close Track"; Value: Checkbox, true meaning the track is CLOSED-->
+        <DisableAllTrackAlarms>false</DisableAllTrackAlarms> <!-- Label: "All"; Value Label: "Disable All Alarms"; Value: Checkbox, True meaning all alarms are disabled-->
+        <TooManyVehiclesAlarm>false</TooManyVehiclesAlarm> <!-- Label: "Too Many Vehicles"; Value Label: "Disable Too Many Vehicles Alarm"; Value: Checkbox, True meaning the too many vehicles alarm is disabled-->
+        <AbsoluteMaximum>9999</AbsoluteMaximum> <!--Label: "Absolute Maximum"; Value: Open Textbox that only takes Integers-->
+        <MaxNumber>1</MaxNumber> <!--Label: "Max Number"; Value: Open Textbox that only takes Integer-->
+        <SpeedAlarm>false</SpeedAlarm> <!-- Label: "Speed"; Value Label: "Disable Speed Alarm"; Value: Checkbox, True meaning that the Speed alarm is disabled-->
+        <SpeedLimit>999</SpeedLimit> <!--Label: "Speed Limit (kph)"; Value: Open Textbox Integers only-->
+        <ExcessStopAlarm>false</ExcessStopAlarm> <!-- Label: "Excess Stop"; Value Label: "Disable Excess Stop Alarm"; Value: Checkbox, True meaning that the Excess Stop alarm is disabled-->
+        <ExcessStopLimit>9999</ExcessStopLimit> <!-- Label: "Stop Limit (secs)"; Value: Open Textbox Integers only-->
+        <Direction>CounterClockwise</Direction> <!-- Label: "Direction"; Value: Dropdown list with 3 choices, "Clockwise","CounterClockwise", and "Both"-->
+        <OffTrackAlarm>false</OffTrackAlarm> <!-- Label: "Off Track"; Value Label: "Disable Off Track Alarm"; Vlaue: Checkbox, true meaning OffTrack alarm is disabled-->
+        <TooCloseAlarm>false</TooCloseAlarm> <!-- Lable: "Too Close"; Value Label: "Disable Too Close Alarm"; Value: Checkbox, true meaning TooClose alarm is disabled-->
+        <!-- END OF Attributes mostly associated with Tracks but some are used with Site-->
+    </HT1>
+
+    <SKID>
+        <!-- The only things that need to be visible to the user for SKID is 
+            *   TrackStatus
+            *   DisableAllTrackAlarms
+            *   TooManyVehiclesAlarm
+            *   AbsoluteMaximum
+            *   MaxNumber
+        -->
+
+        <!-- Not Editable by user in Alarm Control menu-->
+        <TrackNo>09</TrackNo> <!-- Number associate with the Track-->
+        <TrackArea>Skidpad</TrackArea> <!-- Geo cordinates associated with the Track segment-->
+        <TrackSubpart>Track</TrackSubpart> <!-- Name of the specific track segment-->
+        <Type>Point</Type> <!-- GeoJSON type-->
+        <Subtype>Point</Subtype> <!-- Type of track segment-->
+        <SeqNumber>5</SeqNumber> <!-- Icremented if a track segment if seperated into parts-->
+        <Autocad_layer>SKID Track</Autocad_layer> <!-- Combines the values above it into one variable. Also used to for Track/Site points and will say the Track prefix and if it is a track or site.-->
+        <Timestamp>2021-05-12</Timestamp> <!-- Year-month-day the geoJSON associated with it was created-->
+        <AlarmState>Default</AlarmState> <!--Internal Use Only. Three States 1. Default 2.Alarm setting has been changed 3.Track Closed  -->
+        <TrackColor>White</TrackColor> <!--Used to reflect the state of the Dynamic Alarm Settings-->
+        <Count>0</Count> <!-- Current Count of how many trackers on in the specific track segment-->
+        <Exclusive>false</Exclusive> <!-- Assuming this is used to show if the track is exclusive. Unsure how this is presented-->
+        <TrackPrefix>skid</TrackPrefix> <!-- Prefix used at the track level. There are instances where this is the same as the site level and that is fine-->
+        <SitePrefix>HPG</SitePrefix> <!-- Prefix used at the site level-->
+        <!-- END OF Not Editable by user in Alarm Control menu-->
+
+        <!-- Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <TrackStatus>false</TrackStatus> <!-- Label: "Status" Value Label: "Close Track"; Value: Checkbox, true meaning the track is CLOSED-->
+        <DisableAllTrackAlarms>false</DisableAllTrackAlarms> <!-- Label: "All"; Value Label: "Disable All Alarms"; Value: Checkbox, True meaning all alarms are disabled-->
+        <TooManyVehiclesAlarm>false</TooManyVehiclesAlarm> <!-- Label: "Too Many Vehicles"; Value Label: "Disable Too Many Vehicles Alarm"; Value: Checkbox, True meaning the too many vehicles alarm is disabled-->
+        <AbsoluteMaximum>9999</AbsoluteMaximum> <!--Label: "Absolute Maximum"; Value: Open Textbox that only takes Integers-->
+        <MaxNumber>1</MaxNumber> <!--Label: "Max Number"; Value: Open Textbox that only takes Integer-->
+        <SpeedAlarm>false</SpeedAlarm> <!-- Label: "Speed"; Value Label: "Disable Speed Alarm"; Value: Checkbox, True meaning that the Speed alarm is disabled-->
+        <SpeedLimit>999</SpeedLimit> <!--Label: "Speed Limit (kph)"; Value: Open Textbox Integers only-->
+        <ExcessStopAlarm>false</ExcessStopAlarm> <!-- Label: "Excess Stop"; Value Label: "Disable Excess Stop Alarm"; Value: Checkbox, True meaning that the Excess Stop alarm is disabled-->
+        <ExcessStopLimit>9999</ExcessStopLimit> <!-- Label: "Stop Limit (secs)"; Value: Open Textbox Integers only-->
+        <Direction>Both</Direction> <!-- Label: "Direction"; Value: Dropdown list with 3 choices, "Clockwise","CounterClockwise", and "Both"-->
+        <OffTrackAlarm>false</OffTrackAlarm> <!-- Label: "Off Track"; Value Label: "Disable Off Track Alarm"; Vlaue: Checkbox, true meaning OffTrack alarm is disabled-->
+        <TooCloseAlarm>false</TooCloseAlarm> <!-- Lable: "Too Close"; Value Label: "Disable Too Close Alarm"; Value: Checkbox, true meaning TooClose alarm is disabled-->
+        <!-- END OF Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <!-- Site Only Options-->
+
+        <InternalAlarms>false</InternalAlarms> <!-- Site Level Only--> <!-- Label: "Internal Alarms"; Value Label: "Disable Internal Alarms"; Value: Checkbox, true meaning Internal Alarms are disabled-->
+        <BatteryWarningLevel>20</BatteryWarningLevel> <!--Site Level only--> <!-- Label: "Battery Low Level"; Value: Open Textbox that only takes Integers -->
+        <OffRoadTime>5</OffRoadTime> <!--Site Level Only --> <!--Label: "Off Road Time (secs)"; Value: "Open Textbox that only takes Integers"-->
+        <TooCloseDistance>100</TooCloseDistance> <!-- Site Level Only--> <!-- Label: "Too Close Distance (m)"; Value: Open textbox Integers only-->
+        <!-- END OF Site Only Options-->
+    </SKID>
+
+    <DBT>
+        <!-- The only things that need to be visible to the user for DBT is 
+            *   TrackStatus
+            *   DisableAllTrackAlarms
+            *   TooManyVehiclesAlarm
+            *   AbsoluteMaximum
+            *   MaxNumber
+            *   SpeedAlarm
+            *   SpeedLimit
+            *   ExcessStopAlarm
+            *   ExcessStopLimit
+            *   Direction
+        -->
+
+        <!-- Not Editable by user in Alarm Control menu-->
+        <TrackNo>01</TrackNo> <!-- Number associate with the Track-->
+        <TrackArea>Durability track</TrackArea> <!-- Geo cordinates associated with the Track segment-->
+        <TrackSubpart>Track</TrackSubpart> <!-- Name of the specific track segment-->
+        <Type>Point</Type> <!-- GeoJSON type-->
+        <Subtype>Point</Subtype> <!-- Type of track segment-->
+        <SeqNumber>5</SeqNumber> <!-- Icremented if a track segment if seperated into parts-->
+        <Autocad_layer>DBT Track</Autocad_layer> <!-- Combines the values above it into one variable. Also used to for Track/Site points and will say the Track prefix and if it is a track or site.-->
+        <Timestamp>2021-05-12</Timestamp> <!-- Year-month-day the geoJSON associated with it was created-->
+        <AlarmState>Default</AlarmState> <!--Internal Use Only. Three States 1. Default 2.Alarm setting has been changed 3.Track Closed  -->
+        <TrackColor>White</TrackColor> <!--Used to reflect the state of the Dynamic Alarm Settings-->
+        <Count>0</Count> <!-- Current Count of how many trackers on in the specific track segment-->
+        <Exclusive>false</Exclusive> <!-- Assuming this is used to show if the track is exclusive. Unsure how this is presented-->
+        <TrackPrefix>BDT</TrackPrefix> <!-- Prefix used at the track level. There are instances where this is the same as the site level and that is fine-->
+        <SitePrefix>HPG</SitePrefix> <!-- Prefix used at the site level-->
+        <!-- END OF Not Editable by user in Alarm Control menu-->
+
+        <!-- Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <TrackStatus>false</TrackStatus> <!-- Label: "Status" Value Label: "Close Track"; Value: Checkbox, true meaning the track is CLOSED-->
+        <DisableAllTrackAlarms>false</DisableAllTrackAlarms> <!-- Label: "All"; Value Label: "Disable All Alarms"; Value: Checkbox, True meaning all alarms are disabled-->
+        <TooManyVehiclesAlarm>false</TooManyVehiclesAlarm> <!-- Label: "Too Many Vehicles"; Value Label: "Disable Too Many Vehicles Alarm"; Value: Checkbox, True meaning the too many vehicles alarm is disabled-->
+        <AbsoluteMaximum>9999</AbsoluteMaximum> <!--Label: "Absolute Maximum"; Value: Open Textbox that only takes Integers-->
+        <MaxNumber>1</MaxNumber> <!--Label: "Max Number"; Value: Open Textbox that only takes Integer-->
+        <SpeedAlarm>false</SpeedAlarm> <!-- Label: "Speed"; Value Label: "Disable Speed Alarm"; Value: Checkbox, True meaning that the Speed alarm is disabled-->
+        <SpeedLimit>999</SpeedLimit> <!--Label: "Speed Limit (kph)"; Value: Open Textbox Integers only-->
+        <ExcessStopAlarm>false</ExcessStopAlarm> <!-- Label: "Excess Stop"; Value Label: "Disable Excess Stop Alarm"; Value: Checkbox, True meaning that the Excess Stop alarm is disabled-->
+        <ExcessStopLimit>9999</ExcessStopLimit> <!-- Label: "Stop Limit (secs)"; Value: Open Textbox Integers only-->
+        <Direction>Clockwise</Direction> <!-- Label: "Direction"; Value: Dropdown list with 3 choices, "Clockwise","CounterClockwise", and "Both"-->
+        <OffTrackAlarm>false</OffTrackAlarm> <!-- Label: "Off Track"; Value Label: "Disable Off Track Alarm"; Vlaue: Checkbox, true meaning OffTrack alarm is disabled-->
+        <TooCloseAlarm>false</TooCloseAlarm> <!-- Lable: "Too Close"; Value Label: "Disable Too Close Alarm"; Value: Checkbox, true meaning TooClose alarm is disabled-->
+        <!-- END OF Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <!-- Site Only Options-->
+
+        <InternalAlarms>false</InternalAlarms> <!-- Site Level Only--> <!-- Label: "Internal Alarms"; Value Label: "Disable Internal Alarms"; Value: Checkbox, true meaning Internal Alarms are disabled-->
+        <BatteryWarningLevel>20</BatteryWarningLevel> <!--Site Level only--> <!-- Label: "Battery Low Level"; Value: Open Textbox that only takes Integers -->
+        <OffRoadTime>5</OffRoadTime> <!--Site Level Only --> <!--Label: "Off Road Time (secs)"; Value: "Open Textbox that only takes Integers"-->
+        <TooCloseDistance>100</TooCloseDistance> <!-- Site Level Only--> <!-- Label: "Too Close Distance (m)"; Value: Open textbox Integers only-->
+        <!-- END OF Site Only Options-->
+    </DBT>
+
+    <CT>
+        <!-- The only things that need to be visible to the user for CT is 
+            *   TrackStatus
+            *   DisableAllTrackAlarms
+            *   TooManyVehiclesAlarm
+            *   AbsoluteMaximum
+            *   MaxNumber
+            *   SpeedAlarm
+            *   SpeedLimit
+            *   Direction
+            *   OffTrackAlarm
+        -->
+
+        <!-- Not Editable by user in Alarm Control menu-->
+        <TrackNo>07</TrackNo> <!-- Number associate with the Track-->
+        <TrackArea>Comfort track</TrackArea> <!-- Geo cordinates associated with the Track segment-->
+        <TrackSubpart>Track</TrackSubpart> <!-- Name of the specific track segment-->
+        <Type>Point</Type> <!-- GeoJSON type-->
+        <Subtype>Point</Subtype> <!-- Type of track segment-->
+        <SeqNumber>5</SeqNumber> <!-- Icremented if a track segment if seperated into parts-->
+        <Autocad_layer>CT Track</Autocad_layer> <!-- Combines the values above it into one variable. Also used to for Track/Site points and will say the Track prefix and if it is a track or site.-->
+        <Timestamp>2021-05-12</Timestamp> <!-- Year-month-day the geoJSON associated with it was created-->
+        <AlarmState>Default</AlarmState> <!--Internal Use Only. Three States 1. Default 2.Alarm setting has been changed 3.Track Closed  -->
+        <TrackColor>White</TrackColor> <!--Used to reflect the state of the Dynamic Alarm Settings-->
+        <Count>0</Count> <!-- Current Count of how many trackers on in the specific track segment-->
+        <Exclusive>false</Exclusive> <!-- Assuming this is used to show if the track is exclusive. Unsure how this is presented-->
+        <TrackPrefix>CT</TrackPrefix> <!-- Prefix used at the track level. There are instances where this is the same as the site level and that is fine-->
+        <SitePrefix>HPG</SitePrefix> <!-- Prefix used at the site level-->
+        <!-- END OF Not Editable by user in Alarm Control menu-->
+
+        <!-- Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <TrackStatus>false</TrackStatus> <!-- Label: "Status" Value Label: "Close Track"; Value: Checkbox, true meaning the track is CLOSED-->
+        <DisableAllTrackAlarms>false</DisableAllTrackAlarms> <!-- Label: "All"; Value Label: "Disable All Alarms"; Value: Checkbox, True meaning all alarms are disabled-->
+        <TooManyVehiclesAlarm>false</TooManyVehiclesAlarm> <!-- Label: "Too Many Vehicles"; Value Label: "Disable Too Many Vehicles Alarm"; Value: Checkbox, True meaning the too many vehicles alarm is disabled-->
+        <AbsoluteMaximum>9999</AbsoluteMaximum> <!--Label: "Absolute Maximum"; Value: Open Textbox that only takes Integers-->
+        <MaxNumber>1</MaxNumber> <!--Label: "Max Number"; Value: Open Textbox that only takes Integer-->
+        <SpeedAlarm>false</SpeedAlarm> <!-- Label: "Speed"; Value Label: "Disable Speed Alarm"; Value: Checkbox, True meaning that the Speed alarm is disabled-->
+        <SpeedLimit>999</SpeedLimit> <!--Label: "Speed Limit (kph)"; Value: Open Textbox Integers only-->
+        <ExcessStopAlarm>false</ExcessStopAlarm> <!-- Label: "Excess Stop"; Value Label: "Disable Excess Stop Alarm"; Value: Checkbox, True meaning that the Excess Stop alarm is disabled-->
+        <ExcessStopLimit>9999</ExcessStopLimit> <!-- Label: "Stop Limit (secs)"; Value: Open Textbox Integers only-->
+        <Direction>Both</Direction> <!-- Label: "Direction"; Value: Dropdown list with 3 choices, "Clockwise","CounterClockwise", and "Both"-->
+        <OffTrackAlarm>false</OffTrackAlarm> <!-- Label: "Off Track"; Value Label: "Disable Off Track Alarm"; Vlaue: Checkbox, true meaning OffTrack alarm is disabled-->
+        <TooCloseAlarm>false</TooCloseAlarm> <!-- Lable: "Too Close"; Value Label: "Disable Too Close Alarm"; Value: Checkbox, true meaning TooClose alarm is disabled-->
+        <!-- END OF Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <!-- Site Only Options-->
+
+        <InternalAlarms>false</InternalAlarms> <!-- Site Level Only--> <!-- Label: "Internal Alarms"; Value Label: "Disable Internal Alarms"; Value: Checkbox, true meaning Internal Alarms are disabled-->
+        <BatteryWarningLevel>20</BatteryWarningLevel> <!--Site Level only--> <!-- Label: "Battery Low Level"; Value: Open Textbox that only takes Integers -->
+        <OffRoadTime>5</OffRoadTime> <!--Site Level Only --> <!--Label: "Off Road Time (secs)"; Value: "Open Textbox that only takes Integers"-->
+        <TooCloseDistance>100</TooCloseDistance> <!-- Site Level Only--> <!-- Label: "Too Close Distance (m)"; Value: Open textbox Integers only-->
+        <!-- END OF Site Only Options-->
+    </CT>
+
+    <CTC>
+        <!-- The only things that need to be visible to the user for CTC is 
+            *   TrackStatus
+            *   DisableAllTrackAlarms
+            *   TooManyVehiclesAlarm
+            *   AbsoluteMaximum
+            *   MaxNumber
+            *   Direction
+        -->
+
+        <!-- Not Editable by user in Alarm Control menu-->
+        <TrackNo>13</TrackNo> <!-- Number associate with the Track-->
+        <TrackArea>City traffic course</TrackArea> <!-- Geo cordinates associated with the Track segment-->
+        <TrackSubpart>Track</TrackSubpart> <!-- Name of the specific track segment-->
+        <Type>Point</Type> <!-- GeoJSON type-->
+        <Subtype>Point</Subtype> <!-- Type of track segment-->
+        <SeqNumber>5</SeqNumber> <!-- Icremented if a track segment if seperated into parts-->
+        <Autocad_layer>CTC Track</Autocad_layer> <!-- Combines the values above it into one variable. Also used to for Track/Site points and will say the Track prefix and if it is a track or site.-->
+        <Timestamp>2021-05-12</Timestamp> <!-- Year-month-day the geoJSON associated with it was created-->
+        <AlarmState>Default</AlarmState> <!--Internal Use Only. Three States 1. Default 2.Alarm setting has been changed 3.Track Closed  -->
+        <TrackColor>White</TrackColor> <!--Used to reflect the state of the Dynamic Alarm Settings-->
+        <Count>0</Count> <!-- Current Count of how many trackers on in the specific track segment-->
+        <Exclusive>false</Exclusive> <!-- Assuming this is used to show if the track is exclusive. Unsure how this is presented-->
+        <TrackPrefix>CTC</TrackPrefix> <!-- Prefix used at the track level. There are instances where this is the same as the site level and that is fine-->
+        <SitePrefix>HPG</SitePrefix> <!-- Prefix used at the site level-->
+        <!-- END OF Not Editable by user in Alarm Control menu-->
+
+        <!-- Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <TrackStatus>false</TrackStatus> <!-- Label: "Status" Value Label: "Close Track"; Value: Checkbox, true meaning the track is CLOSED-->
+        <DisableAllTrackAlarms>false</DisableAllTrackAlarms> <!-- Label: "All"; Value Label: "Disable All Alarms"; Value: Checkbox, True meaning all alarms are disabled-->
+        <TooManyVehiclesAlarm>false</TooManyVehiclesAlarm> <!-- Label: "Too Many Vehicles"; Value Label: "Disable Too Many Vehicles Alarm"; Value: Checkbox, True meaning the too many vehicles alarm is disabled-->
+        <AbsoluteMaximum>9999</AbsoluteMaximum> <!--Label: "Absolute Maximum"; Value: Open Textbox that only takes Integers-->
+        <MaxNumber>1</MaxNumber> <!--Label: "Max Number"; Value: Open Textbox that only takes Integer-->
+        <SpeedAlarm>false</SpeedAlarm> <!-- Label: "Speed"; Value Label: "Disable Speed Alarm"; Value: Checkbox, True meaning that the Speed alarm is disabled-->
+        <SpeedLimit>999</SpeedLimit> <!--Label: "Speed Limit (kph)"; Value: Open Textbox Integers only-->
+        <ExcessStopAlarm>false</ExcessStopAlarm> <!-- Label: "Excess Stop"; Value Label: "Disable Excess Stop Alarm"; Value: Checkbox, True meaning that the Excess Stop alarm is disabled-->
+        <ExcessStopLimit>9999</ExcessStopLimit> <!-- Label: "Stop Limit (secs)"; Value: Open Textbox Integers only-->
+        <Direction>Clockwise</Direction> <!-- Label: "Direction"; Value: Dropdown list with 3 choices, "Clockwise","CounterClockwise", and "Both"-->
+        <OffTrackAlarm>false</OffTrackAlarm> <!-- Label: "Off Track"; Value Label: "Disable Off Track Alarm"; Vlaue: Checkbox, true meaning OffTrack alarm is disabled-->
+        <TooCloseAlarm>false</TooCloseAlarm> <!-- Lable: "Too Close"; Value Label: "Disable Too Close Alarm"; Value: Checkbox, true meaning TooClose alarm is disabled-->
+        <!-- END OF Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <!-- Site Only Options-->
+
+        <InternalAlarms>false</InternalAlarms> <!-- Site Level Only--> <!-- Label: "Internal Alarms"; Value Label: "Disable Internal Alarms"; Value: Checkbox, true meaning Internal Alarms are disabled-->
+        <BatteryWarningLevel>20</BatteryWarningLevel> <!--Site Level only--> <!-- Label: "Battery Low Level"; Value: Open Textbox that only takes Integers -->
+        <OffRoadTime>5</OffRoadTime> <!--Site Level Only --> <!--Label: "Off Road Time (secs)"; Value: "Open Textbox that only takes Integers"-->
+        <TooCloseDistance>100</TooCloseDistance> <!-- Site Level Only--> <!-- Label: "Too Close Distance (m)"; Value: Open textbox Integers only-->
+        <!-- END OF Site Only Options-->
+    </CTC>
+
+    <COT>
+        <!-- The only things that need to be visible to the user for COT is 
+            *   TrackStatus
+            *   DisableAllTrackAlarms
+            *   TooManyVehiclesAlarm
+            *   AbsoluteMaximum
+            *   MaxNumber
+            *   SpeedAlarm
+            *   SpeedLimit
+            *   Direction
+        -->
+
+        <!-- Not Editable by user in Alarm Control menu-->
+        <TrackNo>10</TrackNo> <!-- Number associate with the Track-->
+        <TrackArea>Corrosion track</TrackArea> <!-- Geo cordinates associated with the Track segment-->
+        <TrackSubpart>Track</TrackSubpart> <!-- Name of the specific track segment-->
+        <Type>Point</Type> <!-- GeoJSON type-->
+        <Subtype>Point</Subtype> <!-- Type of track segment-->
+        <SeqNumber>5</SeqNumber> <!-- Icremented if a track segment if seperated into parts-->
+        <Autocad_layer>COT Track</Autocad_layer> <!-- Combines the values above it into one variable. Also used to for Track/Site points and will say the Track prefix and if it is a track or site.-->
+        <Timestamp>2021-05-12</Timestamp> <!-- Year-month-day the geoJSON associated with it was created-->
+        <AlarmState>Default</AlarmState> <!--Internal Use Only. Three States 1. Default 2.Alarm setting has been changed 3.Track Closed  -->
+        <TrackColor>White</TrackColor> <!--Used to reflect the state of the Dynamic Alarm Settings-->
+        <Count>0</Count> <!-- Current Count of how many trackers on in the specific track segment-->
+        <Exclusive>false</Exclusive> <!-- Assuming this is used to show if the track is exclusive. Unsure how this is presented-->
+        <TrackPrefix>COT</TrackPrefix> <!-- Prefix used at the track level. There are instances where this is the same as the site level and that is fine-->
+        <SitePrefix>HPG</SitePrefix> <!-- Prefix used at the site level-->
+        <!-- END OF Not Editable by user in Alarm Control menu-->
+
+        <!-- Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <TrackStatus>false</TrackStatus> <!-- Label: "Status" Value Label: "Close Track"; Value: Checkbox, true meaning the track is CLOSED-->
+        <DisableAllTrackAlarms>false</DisableAllTrackAlarms> <!-- Label: "All"; Value Label: "Disable All Alarms"; Value: Checkbox, True meaning all alarms are disabled-->
+        <TooManyVehiclesAlarm>false</TooManyVehiclesAlarm> <!-- Label: "Too Many Vehicles"; Value Label: "Disable Too Many Vehicles Alarm"; Value: Checkbox, True meaning the too many vehicles alarm is disabled-->
+        <AbsoluteMaximum>9999</AbsoluteMaximum> <!--Label: "Absolute Maximum"; Value: Open Textbox that only takes Integers-->
+        <MaxNumber>1</MaxNumber> <!--Label: "Max Number"; Value: Open Textbox that only takes Integer-->
+        <SpeedAlarm>false</SpeedAlarm> <!-- Label: "Speed"; Value Label: "Disable Speed Alarm"; Value: Checkbox, True meaning that the Speed alarm is disabled-->
+        <SpeedLimit>999</SpeedLimit> <!--Label: "Speed Limit (kph)"; Value: Open Textbox Integers only-->
+        <ExcessStopAlarm>false</ExcessStopAlarm> <!-- Label: "Excess Stop"; Value Label: "Disable Excess Stop Alarm"; Value: Checkbox, True meaning that the Excess Stop alarm is disabled-->
+        <ExcessStopLimit>9999</ExcessStopLimit> <!-- Label: "Stop Limit (secs)"; Value: Open Textbox Integers only-->
+        <Direction>Both</Direction> <!-- Label: "Direction"; Value: Dropdown list with 3 choices, "Clockwise","CounterClockwise", and "Both"-->
+        <OffTrackAlarm>false</OffTrackAlarm> <!-- Label: "Off Track"; Value Label: "Disable Off Track Alarm"; Vlaue: Checkbox, true meaning OffTrack alarm is disabled-->
+        <TooCloseAlarm>false</TooCloseAlarm> <!-- Lable: "Too Close"; Value Label: "Disable Too Close Alarm"; Value: Checkbox, true meaning TooClose alarm is disabled-->
+        <!-- END OF Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <!-- Site Only Options-->
+
+        <InternalAlarms>false</InternalAlarms> <!-- Site Level Only--> <!-- Label: "Internal Alarms"; Value Label: "Disable Internal Alarms"; Value: Checkbox, true meaning Internal Alarms are disabled-->
+        <BatteryWarningLevel>20</BatteryWarningLevel> <!--Site Level only--> <!-- Label: "Battery Low Level"; Value: Open Textbox that only takes Integers -->
+        <OffRoadTime>5</OffRoadTime> <!--Site Level Only --> <!--Label: "Off Road Time (secs)"; Value: "Open Textbox that only takes Integers"-->
+        <TooCloseDistance>100</TooCloseDistance> <!-- Site Level Only--> <!-- Label: "Too Close Distance (m)"; Value: Open textbox Integers only-->
+        <!-- END OF Site Only Options-->
+    </COT>
+
+    <RR>
+        <!-- The only things that need to be visible to the user for RR is 
+            *   TrackStatus
+            *   DisableAllTrackAlarms
+            *   TooManyVehiclesAlarm
+            *   AbsoluteMaximum
+            *   MaxNumber
+        -->
+
+        <!-- Not Editable by user in Alarm Control menu-->
+        <TrackNo>16</TrackNo> <!-- Number associate with the Track-->
+        <TrackArea>Rough road track</TrackArea> <!-- Geo cordinates associated with the Track segment-->
+        <TrackSubpart>Track</TrackSubpart> <!-- Name of the specific track segment-->
+        <Type>Point</Type> <!-- GeoJSON type-->
+        <Subtype>Point</Subtype> <!-- Type of track segment-->
+        <SeqNumber>5</SeqNumber> <!-- Icremented if a track segment if seperated into parts-->
+        <Autocad_layer>RR Track</Autocad_layer> <!-- Combines the values above it into one variable. Also used to for Track/Site points and will say the Track prefix and if it is a track or site.-->
+        <Timestamp>2021-05-12</Timestamp> <!-- Year-month-day the geoJSON associated with it was created-->
+        <AlarmState>Default</AlarmState> <!--Internal Use Only. Three States 1. Default 2.Alarm setting has been changed 3.Track Closed  -->
+        <TrackColor>White</TrackColor> <!--Used to reflect the state of the Dynamic Alarm Settings-->
+        <Count>0</Count> <!-- Current Count of how many trackers on in the specific track segment-->
+        <Exclusive>false</Exclusive> <!-- Assuming this is used to show if the track is exclusive. Unsure how this is presented-->
+        <TrackPrefix>RR</TrackPrefix> <!-- Prefix used at the track level. There are instances where this is the same as the site level and that is fine-->
+        <SitePrefix>HPG</SitePrefix> <!-- Prefix used at the site level-->
+        <!-- END OF Not Editable by user in Alarm Control menu-->
+
+        <!-- Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <TrackStatus>false</TrackStatus> <!-- Label: "Status" Value Label: "Close Track"; Value: Checkbox, true meaning the track is CLOSED-->
+        <DisableAllTrackAlarms>false</DisableAllTrackAlarms> <!-- Label: "All"; Value Label: "Disable All Alarms"; Value: Checkbox, True meaning all alarms are disabled-->
+        <TooManyVehiclesAlarm>false</TooManyVehiclesAlarm> <!-- Label: "Too Many Vehicles"; Value Label: "Disable Too Many Vehicles Alarm"; Value: Checkbox, True meaning the too many vehicles alarm is disabled-->
+        <AbsoluteMaximum>9999</AbsoluteMaximum> <!--Label: "Absolute Maximum"; Value: Open Textbox that only takes Integers-->
+        <MaxNumber>1</MaxNumber> <!--Label: "Max Number"; Value: Open Textbox that only takes Integer-->
+        <SpeedAlarm>false</SpeedAlarm> <!-- Label: "Speed"; Value Label: "Disable Speed Alarm"; Value: Checkbox, True meaning that the Speed alarm is disabled-->
+        <SpeedLimit>999</SpeedLimit> <!--Label: "Speed Limit (kph)"; Value: Open Textbox Integers only-->
+        <ExcessStopAlarm>false</ExcessStopAlarm> <!-- Label: "Excess Stop"; Value Label: "Disable Excess Stop Alarm"; Value: Checkbox, True meaning that the Excess Stop alarm is disabled-->
+        <ExcessStopLimit>9999</ExcessStopLimit> <!-- Label: "Stop Limit (secs)"; Value: Open Textbox Integers only-->
+        <Direction>Both</Direction> <!-- Label: "Direction"; Value: Dropdown list with 3 choices, "Clockwise","CounterClockwise", and "Both"-->
+        <OffTrackAlarm>false</OffTrackAlarm> <!-- Label: "Off Track"; Value Label: "Disable Off Track Alarm"; Vlaue: Checkbox, true meaning OffTrack alarm is disabled-->
+        <TooCloseAlarm>false</TooCloseAlarm> <!-- Lable: "Too Close"; Value Label: "Disable Too Close Alarm"; Value: Checkbox, true meaning TooClose alarm is disabled-->
+        <!-- END OF Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <!-- Site Only Options-->
+
+        <InternalAlarms>false</InternalAlarms> <!-- Site Level Only--> <!-- Label: "Internal Alarms"; Value Label: "Disable Internal Alarms"; Value: Checkbox, true meaning Internal Alarms are disabled-->
+        <BatteryWarningLevel>20</BatteryWarningLevel> <!--Site Level only--> <!-- Label: "Battery Low Level"; Value: Open Textbox that only takes Integers -->
+        <OffRoadTime>5</OffRoadTime> <!--Site Level Only --> <!--Label: "Off Road Time (secs)"; Value: "Open Textbox that only takes Integers"-->
+        <TooCloseDistance>100</TooCloseDistance> <!-- Site Level Only--> <!-- Label: "Too Close Distance (m)"; Value: Open textbox Integers only-->
+        <!-- END OF Site Only Options-->
+    </RR>
+
+    <CS>
+        <!-- The only things that need to be visible to the user for CS is 
+            *   TrackStatus
+            *   DisableAllTrackAlarms
+            *   TooManyVehiclesAlarm
+            *   AbsoluteMaximum
+            *   MaxNumber
+        -->
+
+        <!-- Not Editable by user in Alarm Control menu-->
+        <TrackNo>04</TrackNo> <!-- Number associate with the Track-->
+        <TrackArea>Construction site track</TrackArea> <!-- Geo cordinates associated with the Track segment-->
+        <TrackSubpart>Track</TrackSubpart> <!-- Name of the specific track segment-->
+        <Type>Point</Type> <!-- GeoJSON type-->
+        <Subtype>Point</Subtype> <!-- Type of track segment-->
+        <SeqNumber>5</SeqNumber> <!-- Icremented if a track segment if seperated into parts-->
+        <Autocad_layer>CS Track</Autocad_layer> <!-- Combines the values above it into one variable. Also used to for Track/Site points and will say the Track prefix and if it is a track or site.-->
+        <Timestamp>2021-05-12</Timestamp> <!-- Year-month-day the geoJSON associated with it was created-->
+        <AlarmState>Default</AlarmState> <!--Internal Use Only. Three States 1. Default 2.Alarm setting has been changed 3.Track Closed  -->
+        <TrackColor>White</TrackColor> <!--Used to reflect the state of the Dynamic Alarm Settings-->
+        <Count>0</Count> <!-- Current Count of how many trackers on in the specific track segment-->
+        <Exclusive>false</Exclusive> <!-- Assuming this is used to show if the track is exclusive. Unsure how this is presented-->
+        <TrackPrefix>CS</TrackPrefix> <!-- Prefix used at the track level. There are instances where this is the same as the site level and that is fine-->
+        <SitePrefix>HPG</SitePrefix> <!-- Prefix used at the site level-->
+        <!-- END OF Not Editable by user in Alarm Control menu-->
+
+        <!-- Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <TrackStatus>false</TrackStatus> <!-- Label: "Status" Value Label: "Close Track"; Value: Checkbox, true meaning the track is CLOSED-->
+        <DisableAllTrackAlarms>false</DisableAllTrackAlarms> <!-- Label: "All"; Value Label: "Disable All Alarms"; Value: Checkbox, True meaning all alarms are disabled-->
+        <TooManyVehiclesAlarm>false</TooManyVehiclesAlarm> <!-- Label: "Too Many Vehicles"; Value Label: "Disable Too Many Vehicles Alarm"; Value: Checkbox, True meaning the too many vehicles alarm is disabled-->
+        <AbsoluteMaximum>9999</AbsoluteMaximum> <!--Label: "Absolute Maximum"; Value: Open Textbox that only takes Integers-->
+        <MaxNumber>1</MaxNumber> <!--Label: "Max Number"; Value: Open Textbox that only takes Integer-->
+        <SpeedAlarm>false</SpeedAlarm> <!-- Label: "Speed"; Value Label: "Disable Speed Alarm"; Value: Checkbox, True meaning that the Speed alarm is disabled-->
+        <SpeedLimit>999</SpeedLimit> <!--Label: "Speed Limit (kph)"; Value: Open Textbox Integers only-->
+        <ExcessStopAlarm>false</ExcessStopAlarm> <!-- Label: "Excess Stop"; Value Label: "Disable Excess Stop Alarm"; Value: Checkbox, True meaning that the Excess Stop alarm is disabled-->
+        <ExcessStopLimit>9999</ExcessStopLimit> <!-- Label: "Stop Limit (secs)"; Value: Open Textbox Integers only-->
+        <Direction>Both</Direction> <!-- Label: "Direction"; Value: Dropdown list with 3 choices, "Clockwise","CounterClockwise", and "Both"-->
+        <OffTrackAlarm>false</OffTrackAlarm> <!-- Label: "Off Track"; Value Label: "Disable Off Track Alarm"; Vlaue: Checkbox, true meaning OffTrack alarm is disabled-->
+        <TooCloseAlarm>false</TooCloseAlarm> <!-- Lable: "Too Close"; Value Label: "Disable Too Close Alarm"; Value: Checkbox, true meaning TooClose alarm is disabled-->
+        <!-- END OF Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <!-- Site Only Options-->
+
+        <InternalAlarms>false</InternalAlarms> <!-- Site Level Only--> <!-- Label: "Internal Alarms"; Value Label: "Disable Internal Alarms"; Value: Checkbox, true meaning Internal Alarms are disabled-->
+        <BatteryWarningLevel>20</BatteryWarningLevel> <!--Site Level only--> <!-- Label: "Battery Low Level"; Value: Open Textbox that only takes Integers -->
+        <OffRoadTime>5</OffRoadTime> <!--Site Level Only --> <!--Label: "Off Road Time (secs)"; Value: "Open Textbox that only takes Integers"-->
+        <TooCloseDistance>100</TooCloseDistance> <!-- Site Level Only--> <!-- Label: "Too Close Distance (m)"; Value: Open textbox Integers only-->
+        <!-- END OF Site Only Options-->
+    </CS>
+
+    <GR>
+        <!-- The only things that need to be visible to the user for GR is 
+            *   TrackStatus
+            *   DisableAllTrackAlarms
+            *   TooManyVehiclesAlarm
+            *   AbsoluteMaximum
+            *   MaxNumber
+            *   SpeedAlarm
+            *   SpeedLimit
+            *   Direction
+            *   OffTrackAlarm
+        -->
+
+        <!-- Not Editable by user in Alarm Control menu-->
+        <TrackNo>03</TrackNo> <!-- Number associate with the Track-->
+        <TrackArea>Gravel road track</TrackArea> <!-- Geo cordinates associated with the Track segment-->
+        <TrackSubpart>Track</TrackSubpart> <!-- Name of the specific track segment-->
+        <Type>Point</Type> <!-- GeoJSON type-->
+        <Subtype>Point</Subtype> <!-- Type of track segment-->
+        <SeqNumber>5</SeqNumber> <!-- Icremented if a track segment if seperated into parts-->
+        <Autocad_layer>GR Track</Autocad_layer> <!-- Combines the values above it into one variable. Also used to for Track/Site points and will say the Track prefix and if it is a track or site.-->
+        <Timestamp>2021-05-12</Timestamp> <!-- Year-month-day the geoJSON associated with it was created-->
+        <AlarmState>Default</AlarmState> <!--Internal Use Only. Three States 1. Default 2.Alarm setting has been changed 3.Track Closed  -->
+        <TrackColor>White</TrackColor> <!--Used to reflect the state of the Dynamic Alarm Settings-->
+        <Count>0</Count> <!-- Current Count of how many trackers on in the specific track segment-->
+        <Exclusive>false</Exclusive> <!-- Assuming this is used to show if the track is exclusive. Unsure how this is presented-->
+        <TrackPrefix>GR</TrackPrefix> <!-- Prefix used at the track level. There are instances where this is the same as the site level and that is fine-->
+        <SitePrefix>HPG</SitePrefix> <!-- Prefix used at the site level-->
+        <!-- END OF Not Editable by user in Alarm Control menu-->
+
+        <!-- Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <TrackStatus>false</TrackStatus> <!-- Label: "Status" Value Label: "Close Track"; Value: Checkbox, true meaning the track is CLOSED-->
+        <DisableAllTrackAlarms>false</DisableAllTrackAlarms> <!-- Label: "All"; Value Label: "Disable All Alarms"; Value: Checkbox, True meaning all alarms are disabled-->
+        <TooManyVehiclesAlarm>false</TooManyVehiclesAlarm> <!-- Label: "Too Many Vehicles"; Value Label: "Disable Too Many Vehicles Alarm"; Value: Checkbox, True meaning the too many vehicles alarm is disabled-->
+        <AbsoluteMaximum>9999</AbsoluteMaximum> <!--Label: "Absolute Maximum"; Value: Open Textbox that only takes Integers-->
+        <MaxNumber>1</MaxNumber> <!--Label: "Max Number"; Value: Open Textbox that only takes Integer-->
+        <SpeedAlarm>false</SpeedAlarm> <!-- Label: "Speed"; Value Label: "Disable Speed Alarm"; Value: Checkbox, True meaning that the Speed alarm is disabled-->
+        <SpeedLimit>999</SpeedLimit> <!--Label: "Speed Limit (kph)"; Value: Open Textbox Integers only-->
+        <ExcessStopAlarm>false</ExcessStopAlarm> <!-- Label: "Excess Stop"; Value Label: "Disable Excess Stop Alarm"; Value: Checkbox, True meaning that the Excess Stop alarm is disabled-->
+        <ExcessStopLimit>9999</ExcessStopLimit> <!-- Label: "Stop Limit (secs)"; Value: Open Textbox Integers only-->
+        <Direction>Clockwise</Direction> <!-- Label: "Direction"; Value: Dropdown list with 3 choices, "Clockwise","CounterClockwise", and "Both"-->
+        <OffTrackAlarm>false</OffTrackAlarm> <!-- Label: "Off Track"; Value Label: "Disable Off Track Alarm"; Vlaue: Checkbox, true meaning OffTrack alarm is disabled-->
+        <TooCloseAlarm>false</TooCloseAlarm> <!-- Lable: "Too Close"; Value Label: "Disable Too Close Alarm"; Value: Checkbox, true meaning TooClose alarm is disabled-->
+        <!-- END OF Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <!-- Site Only Options-->
+
+        <InternalAlarms>false</InternalAlarms> <!-- Site Level Only--> <!-- Label: "Internal Alarms"; Value Label: "Disable Internal Alarms"; Value: Checkbox, true meaning Internal Alarms are disabled-->
+        <BatteryWarningLevel>20</BatteryWarningLevel> <!--Site Level only--> <!-- Label: "Battery Low Level"; Value: Open Textbox that only takes Integers -->
+        <OffRoadTime>5</OffRoadTime> <!--Site Level Only --> <!--Label: "Off Road Time (secs)"; Value: "Open Textbox that only takes Integers"-->
+        <TooCloseDistance>100</TooCloseDistance> <!-- Site Level Only--> <!-- Label: "Too Close Distance (m)"; Value: Open textbox Integers only-->
+        <!-- END OF Site Only Options-->
+    </GR>
+
+    <SLS>
+        <!-- The only things that need to be visible to the user for SLS is 
+            *   TrackStatus
+            *   DisableAllTrackAlarms
+            *   TooManyVehiclesAlarm
+            *   AbsoluteMaximum
+            *   MaxNumber
+        -->
+        <!-- Not Editable by user in Alarm Control menu-->
+        <TrackNo>08</TrackNo> <!-- Number associate with the Track-->
+        <TrackArea>Slopes</TrackArea> <!-- Geo cordinates associated with the Track segment-->
+        <TrackSubpart>Track</TrackSubpart> <!-- Name of the specific track segment-->
+        <Type>Point</Type> <!-- GeoJSON type-->
+        <Subtype>Point</Subtype> <!-- Type of track segment-->
+        <SeqNumber>5</SeqNumber> <!-- Icremented if a track segment if seperated into parts-->
+        <Autocad_layer>SLS Track</Autocad_layer> <!-- Combines the values above it into one variable. Also used to for Track/Site points and will say the Track prefix and if it is a track or site.-->
+        <Timestamp>2021-05-12</Timestamp> <!-- Year-month-day the geoJSON associated with it was created-->
+        <AlarmState>Default</AlarmState> <!--Internal Use Only. Three States 1. Default 2.Alarm setting has been changed 3.Track Closed  -->
+        <TrackColor>White</TrackColor> <!--Used to reflect the state of the Dynamic Alarm Settings-->
+        <Count>0</Count> <!-- Current Count of how many trackers on in the specific track segment-->
+        <Exclusive>false</Exclusive> <!-- Assuming this is used to show if the track is exclusive. Unsure how this is presented-->
+        <TrackPrefix>SLS</TrackPrefix> <!-- Prefix used at the track level. There are instances where this is the same as the site level and that is fine-->
+        <SitePrefix>HPG</SitePrefix> <!-- Prefix used at the site level-->
+        <!-- END OF Not Editable by user in Alarm Control menu-->
+
+        <!-- Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <TrackStatus>false</TrackStatus> <!-- Label: "Status" Value Label: "Close Track"; Value: Checkbox, true meaning the track is CLOSED-->
+        <DisableAllTrackAlarms>false</DisableAllTrackAlarms> <!-- Label: "All"; Value Label: "Disable All Alarms"; Value: Checkbox, True meaning all alarms are disabled-->
+        <TooManyVehiclesAlarm>false</TooManyVehiclesAlarm> <!-- Label: "Too Many Vehicles"; Value Label: "Disable Too Many Vehicles Alarm"; Value: Checkbox, True meaning the too many vehicles alarm is disabled-->
+        <AbsoluteMaximum>9999</AbsoluteMaximum> <!--Label: "Absolute Maximum"; Value: Open Textbox that only takes Integers-->
+        <MaxNumber>1</MaxNumber> <!--Label: "Max Number"; Value: Open Textbox that only takes Integer-->
+        <SpeedAlarm>false</SpeedAlarm> <!-- Label: "Speed"; Value Label: "Disable Speed Alarm"; Value: Checkbox, True meaning that the Speed alarm is disabled-->
+        <SpeedLimit>999</SpeedLimit> <!--Label: "Speed Limit (kph)"; Value: Open Textbox Integers only-->
+        <ExcessStopAlarm>false</ExcessStopAlarm> <!-- Label: "Excess Stop"; Value Label: "Disable Excess Stop Alarm"; Value: Checkbox, True meaning that the Excess Stop alarm is disabled-->
+        <ExcessStopLimit>9999</ExcessStopLimit> <!-- Label: "Stop Limit (secs)"; Value: Open Textbox Integers only-->
+        <Direction>Both</Direction> <!-- Label: "Direction"; Value: Dropdown list with 3 choices, "Clockwise","CounterClockwise", and "Both"-->
+        <OffTrackAlarm>false</OffTrackAlarm> <!-- Label: "Off Track"; Value Label: "Disable Off Track Alarm"; Vlaue: Checkbox, true meaning OffTrack alarm is disabled-->
+        <TooCloseAlarm>false</TooCloseAlarm> <!-- Lable: "Too Close"; Value Label: "Disable Too Close Alarm"; Value: Checkbox, true meaning TooClose alarm is disabled-->
+        <!-- END OF Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <!-- Site Only Options-->
+
+        <InternalAlarms>false</InternalAlarms> <!-- Site Level Only--> <!-- Label: "Internal Alarms"; Value Label: "Disable Internal Alarms"; Value: Checkbox, true meaning Internal Alarms are disabled-->
+        <BatteryWarningLevel>20</BatteryWarningLevel> <!--Site Level only--> <!-- Label: "Battery Low Level"; Value: Open Textbox that only takes Integers -->
+        <OffRoadTime>5</OffRoadTime> <!--Site Level Only --> <!--Label: "Off Road Time (secs)"; Value: "Open Textbox that only takes Integers"-->
+        <TooCloseDistance>100</TooCloseDistance> <!-- Site Level Only--> <!-- Label: "Too Close Distance (m)"; Value: Open textbox Integers only-->
+        <!-- END OF Site Only Options-->
+    </SLS>
+
+    <ENTT>
+        <!-- The only things that need to be visible to the user for ENTT is 
+            *   TrackStatus
+            *   DisableAllTrackAlarms
+            *   TooManyVehiclesAlarm
+            *   AbsoluteMaximum
+            *   MaxNumber
+        -->
+
+        <!-- Not Editable by user in Alarm Control menu-->
+        <TrackNo>12</TrackNo> <!-- Number associate with the Track-->
+        <TrackArea>External noise track</TrackArea> <!-- Geo cordinates associated with the Track segment-->
+        <TrackSubpart>Track</TrackSubpart> <!-- Name of the specific track segment-->
+        <Type>Point</Type> <!-- GeoJSON type-->
+        <Subtype>Point</Subtype> <!-- Type of track segment-->
+        <SeqNumber>5</SeqNumber> <!-- Icremented if a track segment if seperated into parts-->
+        <Autocad_layer>ENTT Track</Autocad_layer> <!-- Combines the values above it into one variable. Also used to for Track/Site points and will say the Track prefix and if it is a track or site.-->
+        <Timestamp>2021-05-12</Timestamp> <!-- Year-month-day the geoJSON associated with it was created-->
+        <AlarmState>Default</AlarmState> <!--Internal Use Only. Three States 1. Default 2.Alarm setting has been changed 3.Track Closed  -->
+        <TrackColor>White</TrackColor> <!--Used to reflect the state of the Dynamic Alarm Settings-->
+        <Count>0</Count> <!-- Current Count of how many trackers on in the specific track segment-->
+        <Exclusive>false</Exclusive> <!-- Assuming this is used to show if the track is exclusive. Unsure how this is presented-->
+        <TrackPrefix>ENTT</TrackPrefix> <!-- Prefix used at the track level. There are instances where this is the same as the site level and that is fine-->
+        <SitePrefix>HPG</SitePrefix> <!-- Prefix used at the site level-->
+        <!-- END OF Not Editable by user in Alarm Control menu-->
+
+        <!-- Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <TrackStatus>false</TrackStatus> <!-- Label: "Status" Value Label: "Close Track"; Value: Checkbox, true meaning the track is CLOSED-->
+        <DisableAllTrackAlarms>false</DisableAllTrackAlarms> <!-- Label: "All"; Value Label: "Disable All Alarms"; Value: Checkbox, True meaning all alarms are disabled-->
+        <TooManyVehiclesAlarm>false</TooManyVehiclesAlarm> <!-- Label: "Too Many Vehicles"; Value Label: "Disable Too Many Vehicles Alarm"; Value: Checkbox, True meaning the too many vehicles alarm is disabled-->
+        <AbsoluteMaximum>9999</AbsoluteMaximum> <!--Label: "Absolute Maximum"; Value: Open Textbox that only takes Integers-->
+        <MaxNumber>1</MaxNumber> <!--Label: "Max Number"; Value: Open Textbox that only takes Integer-->
+        <SpeedAlarm>false</SpeedAlarm> <!-- Label: "Speed"; Value Label: "Disable Speed Alarm"; Value: Checkbox, True meaning that the Speed alarm is disabled-->
+        <SpeedLimit>999</SpeedLimit> <!--Label: "Speed Limit (kph)"; Value: Open Textbox Integers only-->
+        <ExcessStopAlarm>false</ExcessStopAlarm> <!-- Label: "Excess Stop"; Value Label: "Disable Excess Stop Alarm"; Value: Checkbox, True meaning that the Excess Stop alarm is disabled-->
+        <ExcessStopLimit>9999</ExcessStopLimit> <!-- Label: "Stop Limit (secs)"; Value: Open Textbox Integers only-->
+        <Direction>Both</Direction> <!-- Label: "Direction"; Value: Dropdown list with 3 choices, "Clockwise","CounterClockwise", and "Both"-->
+        <OffTrackAlarm>false</OffTrackAlarm> <!-- Label: "Off Track"; Value Label: "Disable Off Track Alarm"; Vlaue: Checkbox, true meaning OffTrack alarm is disabled-->
+        <TooCloseAlarm>false</TooCloseAlarm> <!-- Lable: "Too Close"; Value Label: "Disable Too Close Alarm"; Value: Checkbox, true meaning TooClose alarm is disabled-->
+        <!-- END OF Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <!-- Site Only Options-->
+
+        <InternalAlarms>false</InternalAlarms> <!-- Site Level Only--> <!-- Label: "Internal Alarms"; Value Label: "Disable Internal Alarms"; Value: Checkbox, true meaning Internal Alarms are disabled-->
+        <BatteryWarningLevel>20</BatteryWarningLevel> <!--Site Level only--> <!-- Label: "Battery Low Level"; Value: Open Textbox that only takes Integers -->
+        <OffRoadTime>5</OffRoadTime> <!--Site Level Only --> <!--Label: "Off Road Time (secs)"; Value: "Open Textbox that only takes Integers"-->
+        <TooCloseDistance>100</TooCloseDistance> <!-- Site Level Only--> <!-- Label: "Too Close Distance (m)"; Value: Open textbox Integers only-->
+        <!-- END OF Site Only Options-->
+    </ENTT>
+
+    <AZ>
+        <!-- The only things that need to be visible to the user for AZ is 
+            *   TrackStatus
+            *   DisableAllTrackAlarms
+            *   TooManyVehiclesAlarm
+            *   AbsoluteMaximum
+            *   MaxNumber
+        -->
+
+        <!-- Not Editable by user in Alarm Control menu-->
+        <TrackNo>99</TrackNo> <!-- Number associate with the Track-->
+        <TrackArea>AstaZero</TrackArea> <!-- Geo cordinates associated with the Track segment-->
+        <TrackSubpart>Track</TrackSubpart> <!-- Name of the specific track segment-->
+        <Type>Point</Type> <!-- GeoJSON type-->
+        <Subtype>Point</Subtype> <!-- Type of track segment-->
+        <SeqNumber>5</SeqNumber> <!-- Icremented if a track segment if seperated into parts-->
+        <Autocad_layer>AZ Track</Autocad_layer> <!-- Combines the values above it into one variable. Also used to for Track/Site points and will say the Track prefix and if it is a track or site.-->
+        <Timestamp>2021-05-12</Timestamp> <!-- Year-month-day the geoJSON associated with it was created-->
+        <AlarmState>Default</AlarmState> <!--Internal Use Only. Three States 1. Default 2.Alarm setting has been changed 3.Track Closed  -->
+        <TrackColor>White</TrackColor> <!--Used to reflect the state of the Dynamic Alarm Settings-->
+        <Count>0</Count> <!-- Current Count of how many trackers on in the specific track segment-->
+        <Exclusive>false</Exclusive> <!-- Assuming this is used to show if the track is exclusive. Unsure how this is presented-->
+        <TrackPrefix>AZ</TrackPrefix> <!-- Prefix used at the track level. There are instances where this is the same as the site level and that is fine-->
+        <SitePrefix>HPG</SitePrefix> <!-- Prefix used at the site level-->
+        <!-- END OF Not Editable by user in Alarm Control menu-->
+
+        <!-- Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <TrackStatus>false</TrackStatus> <!-- Label: "Status" Value Label: "Close Track"; Value: Checkbox, true meaning the track is CLOSED-->
+        <DisableAllTrackAlarms>false</DisableAllTrackAlarms> <!-- Label: "All"; Value Label: "Disable All Alarms"; Value: Checkbox, True meaning all alarms are disabled-->
+        <TooManyVehiclesAlarm>false</TooManyVehiclesAlarm> <!-- Label: "Too Many Vehicles"; Value Label: "Disable Too Many Vehicles Alarm"; Value: Checkbox, True meaning the too many vehicles alarm is disabled-->
+        <AbsoluteMaximum>9999</AbsoluteMaximum> <!--Label: "Absolute Maximum"; Value: Open Textbox that only takes Integers-->
+        <MaxNumber>1</MaxNumber> <!--Label: "Max Number"; Value: Open Textbox that only takes Integer-->
+        <SpeedAlarm>false</SpeedAlarm> <!-- Label: "Speed"; Value Label: "Disable Speed Alarm"; Value: Checkbox, True meaning that the Speed alarm is disabled-->
+        <SpeedLimit>999</SpeedLimit> <!--Label: "Speed Limit (kph)"; Value: Open Textbox Integers only-->
+        <ExcessStopAlarm>false</ExcessStopAlarm> <!-- Label: "Excess Stop"; Value Label: "Disable Excess Stop Alarm"; Value: Checkbox, True meaning that the Excess Stop alarm is disabled-->
+        <ExcessStopLimit>9999</ExcessStopLimit> <!-- Label: "Stop Limit (secs)"; Value: Open Textbox Integers only-->
+        <Direction>Both</Direction> <!-- Label: "Direction"; Value: Dropdown list with 3 choices, "Clockwise","CounterClockwise", and "Both"-->
+        <OffTrackAlarm>false</OffTrackAlarm> <!-- Label: "Off Track"; Value Label: "Disable Off Track Alarm"; Vlaue: Checkbox, true meaning OffTrack alarm is disabled-->
+        <TooCloseAlarm>false</TooCloseAlarm> <!-- Lable: "Too Close"; Value Label: "Disable Too Close Alarm"; Value: Checkbox, true meaning TooClose alarm is disabled-->
+        <!-- END OF Attributes mostly associated with Tracks but some are used with Site-->
+
+
+        <!-- Site Only Options-->
+
+        <InternalAlarms>false</InternalAlarms> <!-- Site Level Only--> <!-- Label: "Internal Alarms"; Value Label: "Disable Internal Alarms"; Value: Checkbox, true meaning Internal Alarms are disabled-->
+        <BatteryWarningLevel>20</BatteryWarningLevel> <!--Site Level only--> <!-- Label: "Battery Low Level"; Value: Open Textbox that only takes Integers -->
+        <OffRoadTime>5</OffRoadTime> <!--Site Level Only --> <!--Label: "Off Road Time (secs)"; Value: "Open Textbox that only takes Integers"-->
+        <TooCloseDistance>100</TooCloseDistance> <!-- Site Level Only--> <!-- Label: "Too Close Distance (m)"; Value: Open textbox Integers only-->
+        <!-- END OF Site Only Options-->
+    </AZ>
+
+</TrackData>

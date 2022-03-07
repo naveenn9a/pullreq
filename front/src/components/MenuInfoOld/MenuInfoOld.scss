@@ -1,0 +1,31 @@
+.old-menu-info {
+  position: relative;
+  .old-menu-info-main {
+    overflow: auto;
+    padding-left: 10px;
+  }
+
+  .no-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #999;
+  }
+
+  .close-modal {
+    position: absolute;
+    background: #970d0c;
+    top: 0px;
+    right: 0px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15px;
+    width: 15px;
+    padding: 0;
+    cursor: pointer;
+    margin: 0;
+  }
+}

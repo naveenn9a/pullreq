@@ -1,0 +1,23 @@
+.menu-info {
+  display: grid;
+  grid-template-rows: 250px 50px;
+  height: 100%;
+
+  .menu-info-main {
+    overflow: auto;
+    padding-left: 10px;
+  }
+
+  .menu-info-button {
+    display: flex;
+    align-items: center;
+  }
+
+  .no-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #999;
+  }
+}

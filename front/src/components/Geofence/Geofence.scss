@@ -1,0 +1,95 @@
+.geofence {
+  position: absolute;
+  width: 350px;
+  .geofence-main {
+    overflow-y: auto;
+    padding-left: 10px;
+    height: 500px;
+
+    .arrow {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      vertical-align: middle;
+      margin-left: 5px;
+
+      img {
+        width: 16px;
+        height: 16px;
+        transform: rotate(90deg);
+
+        &.rotate {
+          transform: rotate(270deg);
+        }
+      }
+    }
+
+    h4 {
+      margin: 0;
+      border-bottom: 3px solid blue;
+      padding-bottom: 2px;
+      margin-bottom: 5px;
+    }
+
+    ul ul {
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    & > ul {
+      border: 1px outset #000;
+
+      & > li {
+        border: 1px outset #000;
+        margin: 1px;
+        margin-bottom: 2px;
+        padding: 2px 4px;
+        cursor: pointer;
+      }
+    }
+
+    .inner-ul-gf {
+      flex-direction: column;
+
+      li {
+        margin-top: 4px;
+      }
+    }
+  }
+
+  .no-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #999;
+  }
+
+  .close-modal {
+    position: absolute;
+    background: #970d0c;
+    top: 0px;
+    right: 0px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15px;
+    width: 15px;
+    padding: 0;
+    cursor: pointer;
+    margin: 0;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.shown {
+  display: flex;
+}
+
+.bold {
+  font-weight: bold;
+}
